@@ -1,0 +1,29 @@
+body { 
+    font-family: sans-serif;
+    background-color: black;
+}
+
+svg {
+    filter: invert(100%);     /* go dark */
+}
+
+line { 
+    stroke: #aaa;
+    stroke-width: 1;
+}
+
+text.label {
+    text-anchor: middle;
+    alignment-baseline: middle;
+    fill: white;
+}
+
+.goalNode { 
+  fill-opacity: 1;
+  stroke-width: 5;
+  stroke-opacity: 1;
+}
+
+.elementNode {
+  fill-opacity: 0.8;
+}
