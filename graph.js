@@ -88,28 +88,11 @@ function weakGoal(gid) {
   return false;
 }
 
-const directFromJSON = false;
 const elementsUrl = 'elementsClean.csv';
-const elementsJsonUrl = 'elements.json';
 
-if (directFromJSON) {
-  queue()
-    .defer(d3.json, elementsJsonUrl)
-    .await(loadDataJSON);
-} else {
-  queue()
-    .defer(d3.csv, elementsUrl)
-    // future aux file loads queued here
-    .await(loadData);
-}
-
-function loadDataJSON(err, elementGraph) {
-    if (err) throw error;
-    console.log('data loaded direct from JSON');
-    graph = elementGraph;
-    drawGraph(graph);
-}
-
+queue()
+  .defer(d3.csv, elementsUrl)
+  .await(loadData);
 
 function loadData(err, elementData) {
     if (err) throw error;
