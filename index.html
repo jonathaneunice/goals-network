@@ -61,6 +61,16 @@ they are custom-labeled. Those aspects need significant tending.</li>
 <li>Making sure goal nodes are the focus of the visualization, and so they're
 locked into the center of the display. They do eventually move toward their
 associated element nodes, but only after the simulation has "settled" a bit.</li>
+<li>Force layout graphs with large numbers of nodes can have *tremendous*
+virtual forces impinging on the nodes, especially in the first few ticks of an
+animation, leading to wild visual oscillations, and pushing nodes apart. Taming
+that early "Big Bang" period's a bit of an art. This visualization uses several
+techniques, including pre-placing element nodes in the vicinity of their associated
+goals, 
+fixing the goal' nodes at the center as virtual anchors, and dynamically resizing
+the viewing area (SVG `viewBox`) as the simulation progresses. It doesn't seek
+to eliminate flutter as much as "keep it down to a dull roar."
+</li>
 <li>The graph is typically rendered in a "dark" style (color on dark background), 
 which tends to highlight the subtler lines and smaller groupings that can be 
 easily "washed out" in a lighter rendering on-screen. Reversed images are 
