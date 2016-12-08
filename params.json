@@ -1,0 +1,6 @@
+{
+  "name": "goals-network",
+  "tagline": "d3.js visualization showing goal clustering",
+  "body": "### Goals Relationships\r\n\r\nThis project visualizes relationships from a real-world dataset, mapping studied elements to related goals.\r\n\r\nIt demonstrates the data, as well as techniques typically needed to clean up \"dirty data\" prior to visualization, and to display it an an appealing fashion. \r\n\r\n![](https://github.com/jonathaneunice/goals-network/blob/master/plotWithNone.png?raw=true)\r\n",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
