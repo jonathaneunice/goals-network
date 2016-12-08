@@ -242,7 +242,7 @@ function drawGraph(g) {
           .append('svg')
           .attr('width', dim.width)
           .attr('height', dim.height)
-          .attr('preserveAspectRatio', 'xMidYMin')
+          .attr('preserveAspectRatio', 'xMidYMid')
           .call(zoom);
               
   
@@ -340,14 +340,14 @@ function migrateGoals(simulation) {
   simulation.alpha(1.2);
   simulation.restart();
   
-  // again in a while, resituate the goal node
+  // again in a while, re-situate the goal nodes
   setTimeout(function() { migrateGoals(simulation); },
-           12 * 1000);
+           10 * 1000);
 }
 
 function weightedOvalXY(weights, cx=0, cy=0, r=100, sx=1, sy=1, degStart=0) {
   var tau = Math.PI * 2;
-  var adjWeights = weights.map(n => Math.min(n, 50));
+  var adjWeights = weights.map(w => Math.pow(w, 0.3));
   var sum = adjWeights.reduce((a,b) => a+b, 0);
   var points = [];
   var theta = degStart;
@@ -391,14 +391,16 @@ function ticker() {
                 } else if (d.x > maxx) {
                   d.x = maxx; d.vx = 0;
                 }
-                if (d.y < miny) {
+                return d.x;
+          })
+         .attr('cy', d => {
+               if (d.y < miny) {
                   d.y = miny; d.vy = 0;
                 } else if (d.y > maxy) {
                   d.y = maxy; d.vy = 0;
                 }
-                return d.x;
-          })
-         .attr('cy', d => d.y);
+                return d.y;
+         });
   }
   else {
       nodes.attr('cx', d => d.x)
