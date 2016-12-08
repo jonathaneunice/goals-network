@@ -313,7 +313,7 @@ function drawGraph(g) {
   // could also be done as function of simulation convergence
   // rather than time
   setTimeout(function() { migrateGoals(simulation); },
-           30 * 1000);
+           12 * 1000);
 }
 
 var migratedCount = 0;
@@ -342,7 +342,7 @@ function migrateGoals(simulation) {
   
   // again in a while, resituate the goal node
   setTimeout(function() { migrateGoals(simulation); },
-           20 * 1000);
+           12 * 1000);
 }
 
 function weightedOvalXY(weights, cx=0, cy=0, r=100, sx=1, sy=1, degStart=0) {
