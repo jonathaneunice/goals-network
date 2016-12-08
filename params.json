@@ -1,6 +1,6 @@
 {
   "name": "goals-network",
   "tagline": "d3.js visualization showing goal clustering",
-  "body": "### Goals Relationships\r\n\r\nThis project visualizes relationships from a real-world dataset, mapping studied elements to related goals.\r\n\r\nIt demonstrates the data, as well as techniques typically needed to clean up \"dirty data\" prior to visualization, and to display it an an appealing fashion. \r\n\r\n![](https://github.com/jonathaneunice/goals-network/blob/master/plotWithNone.png?raw=true)\r\n",
+  "body": "### Goals Relationships\r\n\r\nThis project visualizes relationships from a real-world dataset, mapping studied elements to related goals.\r\n\r\nIt demonstrates the data, as well as techniques typically needed to clean up \"dirty data\" prior to visualization, and to display it an an appealing fashion. \r\n\r\nThe full elements graph contains 5,771 nodes. It is typically rendered in a \"dark\" style (color on dark background), which tends to highlight the subtler lines and smaller groupings that can be easily \"washed out\" in a lighter rendering on-screen. Reversed images are available for printing on paper, where the reproduction process is less prone to overwhelming fine lines and color distinctions.\r\n\r\n![](https://github.com/jonathaneunice/goals-network/blob/master/plotWithNone.png?raw=true)\r\n",
   "note": "Don't delete this file! It's used internally to help with page regeneration."
 }
