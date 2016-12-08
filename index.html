@@ -34,13 +34,38 @@
         <h3>
 <a id="goals-relationships" class="anchor" href="#goals-relationships" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Goals Relationships</h3>
 
-<p>This project visualizes relationships from a real-world dataset, mapping studied elements to related goals.</p>
+<p>This project visualizes relationships from a real-world dataset, mapping studied <em>elements</em> to related <em>goals</em>. There are thousands of elements, and about a dozen goals. The total is 5,771 nodes in the full data. </p>
 
-<p>It demonstrates the data, as well as techniques typically needed to clean up "dirty data" prior to visualization, and to display it an an appealing fashion. </p>
+<p>Beyond this particular set of relationships, this project demonstrates techniques typically needed to clean up "dirty data" prior to visualization, and to display it an an appealing fashion. </p>
 
-<p>The full elements graph contains 5,771 nodes. It is typically rendered in a "dark" style (color on dark background), which tends to highlight the subtler lines and smaller groupings that can be easily "washed out" in a lighter rendering on-screen. Reversed images are available for printing on paper, where the reproduction process is less prone to overwhelming fine lines and color distinctions.</p>
+<p></p>
 
-<p><img src="https://github.com/jonathaneunice/goals-network/blob/master/plotWithNone.png?raw=true" alt=""></p>
+<h4>
+<a id="how-it-works" class="anchor" href="#how-it-works" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How It Works</h4>
+
+<p>Basic data cleanups are done in <code>csvclean.py</code>, in Python (using its wonderful <a href="http://pandas.pydata.org/">Pandas</a> and <a href="http://www.numpy.org/">NumPy</a> tools). Column names are sanitized, data are trimmed of excess spaces, and columns 
+that are known to be pointless are dropped. The script emits more hygienic CSV.</p>
+
+<p><code>graph.js</code> does the heavy lifting, converting CSV into a JavaScript data structure suitable for the incomparable <a href="https://d3js.org/">d3.js</a> and its force-directed graph layout.</p>
+
+<p>Much of the visualization core is stock d3. But making things look "right" takes a little more work than just "hey! d3! do your thing!" Interesting aspects include:</p>
+
+<ul>
+<li>The goal graphs are largely implied by, not explicit in, the data. 
+Goal nodes must be purposefully created and managed; they don't just 
+"fall out of" the input data.</li>
+<li>Multiple classes/kinds of nodes. Goal nodes behave quite differently 
+from element nodes. E.g. they are explicitly placed, they are much larger,
+they are custom-labeled. Those aspects need significant tending.</li>
+<li>Making sure goal nodes are the focus of the visualization, and so they're
+locked into the center of the display. They do eventually move toward their
+associated element nodes, but only after the simulation has "settled" a bit.</li>
+<li>The graph is typically rendered in a "dark" style (color on dark background), 
+which tends to highlight the subtler lines and smaller groupings that can be 
+easily "washed out" in a lighter rendering on-screen. Reversed images are 
+available for printing on paper, where the reproduction process is less prone 
+to overwhelming fine lines and color distinctions.</li>
+</ul>
       </section>
     </div>
 
